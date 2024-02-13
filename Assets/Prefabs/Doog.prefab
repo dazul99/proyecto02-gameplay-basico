@@ -203,6 +203,7 @@ GameObject:
   - component: {fileID: 3841764159298119294}
   - component: {fileID: 5466960240346830373}
   - component: {fileID: 411612924439128834}
+  - component: {fileID: 2340163501021960870}
   m_Layer: 0
   m_Name: Doog
   m_TagString: Untagged
@@ -310,6 +311,27 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   topBound: 25
   botBound: -10
+--- !u!65 &2340163501021960870
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 302141714349686455}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 0.12453423, y: 0.19101678, z: 0.20004013}
+  m_Center: {x: 0.00011415482, y: 0.094906956, z: -0.0061957957}
 --- !u!1 &302264094475189282
 GameObject:
   m_ObjectHideFlags: 0

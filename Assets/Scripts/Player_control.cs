@@ -12,6 +12,9 @@ public class Player_control : MonoBehaviour
 
     [SerializeField] private GameObject foodPrefab;
 
+    private bool gamestarted = false;
+    private int gamemode = 1;
+
     private void PlayerInBounds()
     {
         Vector3 pos = transform.position;
@@ -28,20 +31,34 @@ public class Player_control : MonoBehaviour
 
     private void Shootfood()
     {
-        Instantiate(foodPrefab, transform.position, Quaternion.identity);
-
+        Instantiate(foodPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.identity);
+        if(gamemode == 3)
+        {
+            Instantiate(foodPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.Euler(0,-45,0));
+            Instantiate(foodPrefab, new Vector3(transform.position.x, transform.position.y, transform.position.z + 1), Quaternion.Euler(0, 45, 0));
+        }
     }
 
     void Update()
     {
-        horizontalInput = Input.GetAxis("Horizontal");
-
-        transform.Translate(horizontalInput * sped * Time.deltaTime * Vector3.right);
-        PlayerInBounds();
-
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (gamestarted)
         {
-            Shootfood();
+            horizontalInput = Input.GetAxis("Horizontal");
+
+            transform.Translate(horizontalInput * sped * Time.deltaTime * Vector3.right);
+            PlayerInBounds();
+
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                Shootfood();
+            }
         }
     }
+
+    public void GameStart(int hell)
+    {
+        gamestarted = true;
+        gamemode= hell;
+    }
+
 }

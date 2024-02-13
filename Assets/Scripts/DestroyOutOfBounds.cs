@@ -7,6 +7,13 @@ public class DestroyOutOfBounds : MonoBehaviour
     [SerializeField] private float topBound = 25f;
     [SerializeField] private float botBound = -5f;
 
+    private GameManager gameManager;
+
+    private void Start()
+    {
+        gameManager = FindObjectOfType<GameManager>();
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -16,8 +23,10 @@ public class DestroyOutOfBounds : MonoBehaviour
         }
 
         else if(transform.position.z <= botBound) 
-        { 
-            Destroy(gameObject); 
+        {
+            gameManager.Gameover();
+            Destroy(gameObject);
+            
         }
 
     }
